@@ -10,18 +10,18 @@ public class AuthController : ControllerBase
     [HttpPost("public")]
     public IActionResult Public()
     {
-        return Ok("This is a public message!");
+        return Ok();
     }
     
     [HttpPost("private")]
     [Authorize]
     public IActionResult Private()
     {
-        return Ok("This is a private message!");
+        return Ok();
     }
     
     [HttpPost("private/scoped")]
-    [Authorize("read:messages")]
+    [Authorize("group:create")]
     public IActionResult Scoped()
     {
         return Ok("This is a private scoped message!");
