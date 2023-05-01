@@ -1,5 +1,6 @@
 ﻿using AuthService.Authentication;
-using AuthService.Services;
+using AuthService.Clients;
+using AuthService.TinyMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 
@@ -41,6 +42,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.Authority = builder.Configuration["Auth0:Domain"];
         options.Audience = builder.Configuration["Auth0:Audience"];
     });
+
+MappingConfigs.Configure();
 
 var app = builder.Build();
 

@@ -1,7 +1,7 @@
 using System.Text.Json;
-using AuthService.Services.Models;
+using AuthService.Clients.Models;
 
-namespace AuthService.Services;
+namespace AuthService.Clients;
 
 public class Auth0Client
 {

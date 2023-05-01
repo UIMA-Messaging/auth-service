@@ -1,5 +1,7 @@
-using AuthService.Services;
+using AuthService.Clients;
+using AuthService.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using static Nelibur.ObjectMapper.TinyMapper;
 
 namespace AuthService.Controllers;
 
@@ -15,8 +17,9 @@ public class TokenController : ControllerBase
     }
 
     [HttpPost("create")]
-    public async Task<IActionResult> CreateToken()
+    public async Task<Token> CreateToken()
     {
-        return Ok(await client.CreateAccessToken());
+        var response = await client.CreateAccessToken();
+        return Map<Token>(response);
     }
 }

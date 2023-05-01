@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace AuthService.Services.Models;
+namespace AuthService.Clients.Models;
 
 public class TokenResponse
 {
