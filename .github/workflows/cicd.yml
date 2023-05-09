@@ -10,7 +10,7 @@ env:
   AWS_REGION: eu-west-2
   ECS_CLUSTER_NAME: uima
   ECS_SERVICE_NAME: auth-service
-  ECS_TASK_DEFINITION_NAME: uima-auth-service-deploy
+  ECS_TASK_DEFINITION_NAME: auth-service-deploy
   ECR_REPOSITORY_NAME: uima/auth-service
   ECR_IMAGE_TAG: latest
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
