@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-app
+spec:
+  selector:
+    matchLabels:
+      app: auth-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: auth-app
+    spec:
+      containers:
+        - name: auth-service
+          image: dockeroo80/uima-auth-service
+          ports:
+            - containerPort: 80
+          env:
+            - name: Auth0__ClientSecret
+              valueFrom:
+                secretKeyRef:
+                  name: auth-service-secrets
+                  key: client-secret
+            - name: Auth0__ClientId
+              valueFrom:
+                secretKeyRef:
+                  name: auth-service-secrets
+                  key: client-id
+            - name: Auth0__Domain
+              valueFrom:
+                configMapKeyRef:
+                  name: auth-service-configs
+                  key: domain
+            - name: Auth0__Audience
+              valueFrom:
+                configMapKeyRef:
+                  name: auth-service-configs
+                  key: audience
