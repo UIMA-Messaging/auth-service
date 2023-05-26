@@ -7,23 +7,23 @@ namespace AuthService.Controllers;
 [Route("auth")]
 public class AuthController : ControllerBase
 {
-    [HttpPost("public")]
+    [HttpGet("public")]
     public IActionResult Public()
     {
         return Ok();
     }
     
-    [HttpPost("private")]
+    [HttpGet("private")]
     [Authorize]
     public IActionResult Private()
     {
         return Ok();
     }
     
-    [HttpPost("private/scoped")]
+    [HttpGet("private/scoped")]
     [Authorize("group:create")]
     public IActionResult Scoped()
     {
-        return Ok("This is a private scoped message!");
+        return Ok();
     }
 }
