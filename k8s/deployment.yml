@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth-service
-          image: dockeroo80/uima-auth-service
+          image: dockeroo80/uima-auth-service:IMAGE_TAG
           ports:
             - containerPort: 80
           env:
